@@ -1,5 +1,27 @@
 let connection = require('../config/connection');
 
+function createQmarks(num){
+    let array = [];
+    for (let i = 0; i < num.length; i ++){
+        array.push('?');
+    }
+    return array.toString();
+};
+
+function translateSql(obj){
+    let array = [];
+    for (let key in ob) {
+        let value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)){
+            if (typeof value === "string" && value.indexOf('')> = 0){
+                value = "'" + value + "'";
+            }
+            array.push(key + "=" + value)
+        }
+    }
+    return array.toString();
+};
+
 let orm = {
     selectAll: function(table, cb) {
         let dbQuery = 'SELECT * FROM' + table + ';';
