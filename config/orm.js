@@ -47,7 +47,7 @@ updateOne: function(table, objCalVals, condition, cb){
         let dbQuery = 'UPDATE' + table + 'SET' + translateSql(objCalVals) + 'WHERE' + condition;
         console.log(dbQuery);
         
-        connection.query(dbQuery, vals, function(error, response){
+        connection.query(dbQuery, function(error, response){
             if (error) {
                 console.log(error);
             }
@@ -59,7 +59,7 @@ deleteOne: function(table, condition, cb){
         let dbQuery = 'DELETE FROM' + table + 'WHERE' + condition;
 
         console.log(dbQuery);
-        connection.query(dbQuery, vals, function(error, response){
+        connection.query(dbQuery, function(error, response){
             if (error) {
                 console.log(error);
             }
