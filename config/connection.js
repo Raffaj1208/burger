@@ -1,8 +1,13 @@
 let express = require('express');
 let app = express();
-let mysql = require('mysql');
+const mysql = require('mysql');
 
-let connection = mysql.createConnection({
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+    
+connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '@Rebirth03',
@@ -14,4 +19,5 @@ connection.connect(function(error){
     }
     console.log('connected with Id' + connection.threadId);
 });
+}
 module.exports = connection;

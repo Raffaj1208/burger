@@ -8,7 +8,7 @@ function createQmarks(num){
     return array.toString();
 };
 
-function translateSql(obj){
+function translateSql(ob){
     let array = [];
     for (let key in ob) {
         let value = ob[key];
@@ -45,8 +45,8 @@ insertOne: function(table, cols, vals, cb) {
     },
 updateOne: function(table, objCalVals, condition, cb){
         let dbQuery = 'UPDATE' + table + 'SET' + translateSql(objCalVals) + 'WHERE' + condition;
-
         console.log(dbQuery);
+        
         connection.query(dbQuery, vals, function(error, response){
             if (error) {
                 console.log(error);
@@ -68,3 +68,4 @@ deleteOne: function(table, condition, cb){
     
     }
 };
+module.exports = orm;

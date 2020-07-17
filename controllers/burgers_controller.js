@@ -1,5 +1,5 @@
 let express = require('express');
-let burger = require('../models/burgers');
+let burger = require('../models/burger');
 
 let router = express.Router();
 
@@ -23,6 +23,7 @@ router.get('/', function(request, response){
     router.put('/api/burgers/:id', function(request, response){
         let condition = 'id = ' + request.params.id;
         console.log('condition', condition);
+        
         burger.updateOne({devoured: request.body.devoured}, condition, function(result){
             if ((result, changedRows === 0)){
                 return response.status(404).end();
@@ -32,11 +33,12 @@ router.get('/', function(request, response){
             }
         });
     });
-    router.deleteOne(condition, function(request, response){
+    router.delete('/api/burgers/:id', function(request, response){
         let condition = 'id = ' + request.params.id;
         console.log('condition', condition);
+        
         burger.deleteOne(condition, function(result){
-            if ((result, changedRows === 0)) {
+            if (result, changedRows === 0) {
                 return response.status(404).end();
             }
             else {
