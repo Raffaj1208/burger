@@ -1,10 +1,10 @@
-let express = require('express');
-let app = express();
-let bodyParser = require('body-parser');
-let methodOverride = require('method-override');
-let exphbs = require('express-handlebars');
-let routes = require('./controllers/burgers_controller.js');
-let port = process.env.port || 3000;
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var exphbs = require('express-handlebars');
+var routes = require('./controllers/burgers_controller.js');
+var port = process.env.port || 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
