@@ -1,11 +1,11 @@
-let express = require("express");
-let burger = require("../models/burger");
+var express = require("express");
+var burger = require("../models/burger");
 
-let router = express.Router();
+var router = express.Router();
 
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
-    let hdbrsObj = {
+    var hdbrsObj = {
       burgers: data
     };
     console.log(hdbrsObj);
@@ -23,7 +23,7 @@ router.get("/", function(req, res) {
     );
   });
   router.put("/api/burgers/:id", function(req, res) {
-    let condition = "id = " + req.params.id;
+    var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
     burger.updateOne({ devoured: req.body.devoured }, condition, function(
@@ -37,7 +37,7 @@ router.get("/", function(req, res) {
     });
   });
   router.delete("/api/burgers/:id", function(req, res) {
-    let condition = "id = " + req.params.id;
+    var condition = "id = " + req.params.id;
     console.log("condition", condition);
 
     burger.deleteOne(condition, function(result) {

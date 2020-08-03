@@ -1,17 +1,17 @@
-let connection = require("../config/connection");
+var connection = require("../config/connection");
 
 function createQmarks(num) {
-  let arr = [];
-  for (let i = 0; i < num; i++) {
+  var arr = [];
+  for (var i = 0; i < num; i++) {
     arr.push("?");
   }
   return arr.toString();
 }
 
 function translateSql(ob) {
-  let arr = [];
-  for (let key in ob) {
-    let value = ob[key];
+  var arr = [];
+  for (var key in ob) {
+    var value = ob[key];
     if (Object.hasOwnProperty.call(ob, key)) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
@@ -22,9 +22,9 @@ function translateSql(ob) {
   return arr.toString();
 }
 
-let orm = {
+var orm = {
   selectAll: function(table, cb) {
-    let dbQuery = "SELECT * FROM " + table + ";";
+    var dbQuery = "SELECT * FROM " + table + ";";
 
     connection.query(dbQuery, function(err, res) {
       if (err) {
@@ -34,7 +34,7 @@ let orm = {
     });
   },
   insertOne: function(table, cols, vals, cb) {
-    let dbQuery =
+    var dbQuery =
       "INSERT INTO " +
       table +
       " (" +
@@ -53,7 +53,7 @@ let orm = {
     });
   },
   updateOne: function(table, objColVals, condition, cb) {
-    let dbQuery =
+    var dbQuery =
       "UPDATE " +
       table +
       " SET " +
@@ -71,7 +71,7 @@ let orm = {
     });
   },
   deleteOne: function(table, condition, cb) {
-    let dbQuery = "DELETE FROM " + table + " WHERE " + condition;
+    var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
     console.log(dbQuery);
 
     connection.query(dbQuery, function(err, res) {
