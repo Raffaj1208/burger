@@ -1,0 +1,29 @@
+body{
+  background-image: url(../img/rest2.jpg);
+  background-size: cover;
+  height: max-content; width: max-content;
+
+}
+.jumbotron {
+    background-repeat: no-repeat;
+    background-position: left;
+    background-image: url(../img/burger.jpg);
+    color: #ffffff;
+    margin-top: 3%;
+  }
+  #newburger {
+    color: darkgreen;
+  }
+  #leftside {
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+  }
+  #rightside {
+    background-color:goldenrod;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+  }
+  
