@@ -7,6 +7,7 @@ var routes = require('./controllers/burgers_controller.js');
 var port = process.env.port || 3000;
 
 app.use(express.json());
+app.use(express.static('views'));
 app.use(express.static('public'));
 app.use(express.urlencoded({
     extended: true
