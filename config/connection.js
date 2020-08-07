@@ -13,5 +13,11 @@ connection = mysql.createConnection({
 });
 };
 
-connection.connect();
+connection.connect(function(error){
+    if (error){
+        console.log("Error" + error.stack);
+        return;
+    }
+    console.log('Connected as ' + connection.threadId);
+});
 module.exports = connection;
